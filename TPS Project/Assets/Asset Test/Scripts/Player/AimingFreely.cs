@@ -6,14 +6,16 @@ public class AimingFreely : MonoBehaviour {
 
      Animator Anim;
     public Camera camera;
-    public Vector3 offSet;
+    public Quaternion offSet;
     Transform chest;
+    public Transform hand;
 	// Use this for initialization
 	void Start () {
         Anim = GetComponent<Animator>();
         chest = Anim.GetBoneTransform(HumanBodyBones.Chest);
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-	}
+        hand = Anim.GetBoneTransform(HumanBodyBones.LeftHand);
+    }
    
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class AimingFreely : MonoBehaviour {
 
 
             chest.transform.rotation = new Quaternion(camera.transform.rotation.x, transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
+            hand.transform.rotation = offSet;
+            Anim.GetBoneTransform(HumanBodyBones.RightHand).transform.rotation = offSet;
         }
     }
 }

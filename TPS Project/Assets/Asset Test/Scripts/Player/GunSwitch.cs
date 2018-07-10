@@ -9,6 +9,8 @@ public class GunSwitch : MonoBehaviour {
     public bool hasAgun;
     public bool isInCar;
     public GameObject pistola;
+    public bool isAimingPistol;
+    public Transform centerOfRightHand;
 	// Use this for initialization
 	void Start () {
         pistola.SetActive(false);
@@ -20,6 +22,20 @@ public class GunSwitch : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Aim"))
+        {
+            isAimingPistol = true;
+
+        }
+        else
+        {
+            isAimingPistol = false;
+        }
+        if(isAimingPistol)
+        {
+            pistola.transform.localRotation =  Quaternion.Euler(-115,388,-233);
+            pistola.transform.position = centerOfRightHand.transform.position;
+        }
         isInCar = GetComponent<PlayerScript>().isInCar;
      
         if (!isInCar)
