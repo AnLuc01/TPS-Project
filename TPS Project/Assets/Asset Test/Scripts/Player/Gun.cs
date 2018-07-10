@@ -23,8 +23,9 @@ public class Gun : MonoBehaviour {
    
     // Update is called once per frame
     void Update() {
-         
-        if(Input.GetKey(KeyCode.Mouse1)&& !isInCar)
+        Debug.DrawLine(transform.position, cam.transform.forward, Color.red);
+
+        if (Input.GetKey(KeyCode.Mouse1)&& !isInCar)
         {
             cr.enabled = true;
         }
@@ -63,13 +64,18 @@ public class Gun : MonoBehaviour {
     void Shoot()
     {
         RaycastHit hit;
+        audio.Play();
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+
+        if (Physics.Raycast(transform.position, cam.transform.forward, out hit, range))
         {
            
-            audio.Play();
             hit.transform.SendMessage("HitByRay");
-
+            HealthScript target = hit.transform.GetComponent<HealthScript>();
+            if(target != null)
+            {
+                target.takeDamage(10);
+            }
 
         }
 
