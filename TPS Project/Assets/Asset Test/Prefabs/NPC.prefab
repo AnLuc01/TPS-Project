@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 54617978020239468}
   - component: {fileID: 65887125363816334}
   - component: {fileID: 114003554606053014}
+  - component: {fileID: 114156048640191506}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -1940,6 +1941,18 @@ MonoBehaviour:
   Avoiding: 0
   newDir: {x: 0, y: 0, z: 0}
   RayS: {fileID: 1069980600809376}
+--- !u!114 &114156048640191506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106178265349438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5302b45792140941883f5ac3878c1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
 --- !u!114 &114572167439209934
 MonoBehaviour:
   m_ObjectHideFlags: 1

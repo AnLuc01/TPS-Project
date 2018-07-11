@@ -60,7 +60,7 @@ public class CarAIControl : MonoBehaviour {
         }   
         path = GameObject.FindGameObjectWithTag("Path").transform;
 
-        Nodes = path.GetComponent<Path>().Nodes;
+        Nodes = path.GetComponent<ShowPath>().Nodes;
         if (DistanceToPlayer < 20 && DistanceToPlayer > 10f)
         {
             Chasing = true;
