@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class AutoGun : MonoBehaviour {
@@ -6,7 +7,7 @@ public class AutoGun : MonoBehaviour {
     public float range = 1000000f;
     public GameObject cam;
     public Camera camera;
-    public Canvas cr;
+    public Image Crosshair;
     public AudioClip sparo;
     public AudioSource audio;
     public float fireRate = 7.5f;
@@ -17,7 +18,7 @@ public class AutoGun : MonoBehaviour {
     void Start()
     {
         ammo = 30;
-        cr.enabled = false;
+        Crosshair.enabled = false;
         caric = 5;
     }
 
@@ -30,10 +31,10 @@ public class AutoGun : MonoBehaviour {
         if (Input.GetKey(KeyCode.Mouse1))
         {
 
-            cr.enabled = true;
+            Crosshair.enabled = true;
         }
 
-        else { cr.enabled = false; }
+        else { Crosshair.enabled = false; }
         if (Input.GetKey(KeyCode.Mouse1))
         {
             if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire && ammo > 0)
@@ -80,7 +81,7 @@ public class AutoGun : MonoBehaviour {
 
         }
 
-        cr.transform.position = cam.transform.position;
+        Crosshair.transform.position = cam.transform.position;
     }
 
 

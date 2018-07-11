@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
@@ -9,7 +10,7 @@ public class PlayerScript : MonoBehaviour {
     public Terrain ter;
     public bool enteredCar;
     public bool isInCar;
-    public Canvas canv;
+    public Image Crosshair;
     public bool exitingCar;
     public Rigidbody rb;
     void getInCar()
@@ -166,7 +167,7 @@ public class PlayerScript : MonoBehaviour {
             GetComponent<GunSwitch>().a2 = false;
             GetComponent<GunSwitch>().pistola.SetActive(false);
             GetComponent<GunSwitch>().AK47.SetActive(false);
-            canv.enabled = false;
+            Crosshair.enabled = false;
             GetComponentInChildren<MouseLookT>().enabled = false;
 
         }

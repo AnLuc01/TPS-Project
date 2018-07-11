@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Gun : MonoBehaviour {
@@ -6,7 +7,7 @@ public class Gun : MonoBehaviour {
     public float range = 1000000f;
     public GameObject cam;
     public Camera camera;
-    public Canvas cr;
+    public Image Crosshair;
      AudioClip sparo;
     public AudioSource audio;
     public float fireRate = 7.5f;
@@ -17,7 +18,7 @@ public class Gun : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         ammo = 5;
-        cr.enabled = false;
+        Crosshair.enabled = false;
         caric = 5;
     }
    
@@ -27,9 +28,9 @@ public class Gun : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Mouse1)&& !isInCar)
         {
-            cr.enabled = true;
+            Crosshair.enabled = true;
         }
-            else { cr.enabled = false; }
+            else { Crosshair.enabled = false; }
             if (Input.GetKey(KeyCode.Mouse1))
                 if (Input.GetKeyDown(KeyCode.Mouse0) && ammo > 0)
                 {
@@ -79,7 +80,6 @@ public class Gun : MonoBehaviour {
 
         }
 
-        cr.transform.position = camera.transform.position;
     }
 
 }
