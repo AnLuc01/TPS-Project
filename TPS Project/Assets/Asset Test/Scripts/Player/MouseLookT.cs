@@ -13,7 +13,7 @@ public class MouseLookT : MonoBehaviour {
 
     public float distanceMin = .5f;
     public float distanceMax = 15f;
-
+    public Transform AimT;
     private Rigidbody rigidbody;
 
     float x = 0.0f;
@@ -62,9 +62,23 @@ public class MouseLookT : MonoBehaviour {
                 Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
                 Vector3 position = rotation * negDistance + target.position + new Vector3(0, yOffset, 0);
 
+                Quaternion OffSet =  Quaternion.Euler(0, 40, 0);
+            
+            
 
                 transform.rotation = rotation;
                 transform.position = position;
+                
+                
+            }
+
+            if (GetComponentInParent<GunSwitch>().isAiming)
+            {
+                target = AimT;
+            }
+            else
+            {
+                target = GameObject.FindGameObjectWithTag("Player").transform;
             }
         }
     }

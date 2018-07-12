@@ -172,10 +172,13 @@ public class PlayerScript : MonoBehaviour {
             GetComponentInChildren<MouseLookT>().enabled = false;
 
         }
+     /*   else if(GetComponent<GunSwitch>().isAimingPistol)
+        {
+            GetComponentInChildren<MouseLookT>().enabled = false;
+        }*/
         else
         {
-            GetComponentInChildren<MouseLookT>().enabled = true;
-         
+            GetComponentInChildren<mouseLook>().enabled = true;
         }
         GameObject leftDoor = GetComponent<PlayerToCar>().leftDoor;
         GameObject CCar = GetComponent<PlayerToCar>().closestCar;

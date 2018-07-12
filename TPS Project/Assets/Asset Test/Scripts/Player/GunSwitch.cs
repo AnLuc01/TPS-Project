@@ -9,24 +9,29 @@ public class GunSwitch : MonoBehaviour {
     public bool hasAgun;
     public bool isInCar;
     public GameObject pistola;
-    public bool isAimingPistol;
-    public string currentGun;
+     bool isAimingPistol;
+    public Camera cam;
+     public bool isAiming;
     public int Ammo;
     public int Magazines;
     public Transform centerOfRightHand;
-	// Use this for initialization
-	void Start () {
+    bool isAimingAK;
+    // Use this for initialization
+    void Start () {
         pistola.SetActive(false);
         a1 = false;
         anim.SetBool("Rifle", false);
         AK47.SetActive(false);
         a2 = false;
         anim = gameObject.GetComponent<Animator>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+     
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("Aim"))
         {
             isAimingPistol = true;
@@ -35,6 +40,14 @@ public class GunSwitch : MonoBehaviour {
         else
         {
             isAimingPistol = false;
+        }
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Ak47"))
+        {
+            isAimingAK = true;
+        }
+        else
+        {
+            isAimingAK = false;
         }
         if(isAimingPistol)
         {
@@ -88,6 +101,15 @@ public class GunSwitch : MonoBehaviour {
         {
             Ammo = AK47.GetComponent<AutoGun>().ammo;
             Magazines = AK47.GetComponent<AutoGun>().caric;
+        }
+        if(isAimingPistol || isAimingAK)
+        {
+            isAiming = true;
+
+        }
+        else
+        {
+            isAiming = false;
         }
     }
 }

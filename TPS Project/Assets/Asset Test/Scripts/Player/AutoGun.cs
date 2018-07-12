@@ -71,7 +71,7 @@ public class AutoGun : MonoBehaviour {
 
 
 
-        if (Physics.Raycast(transform.position, cam.transform.forward, out hit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
           
             hit.transform.SendMessage("HitByRay");

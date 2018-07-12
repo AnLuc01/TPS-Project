@@ -68,7 +68,7 @@ public class Gun : MonoBehaviour {
         audio.Play();
 
 
-        if (Physics.Raycast(transform.position, cam.transform.forward, out hit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
             if(hit.collider != null)
             hit.transform.SendMessage("HitByRay");
