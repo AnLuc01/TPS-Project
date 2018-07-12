@@ -12,7 +12,7 @@ public class AutoGun : MonoBehaviour {
     public AudioSource audio;
     public float fireRate = 7.5f;
     public float nextTimeToFire = 1f;
-    public float ammo = 5;
+    public int ammo = 5;
     public int caric = 5;
     // Use this for initialization
     void Start()
@@ -47,18 +47,7 @@ public class AutoGun : MonoBehaviour {
 
             }
 
-            if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
-            {
-                ammo -= 0.1f;
-            }
-            if (ammo == 0 && caric > 0)
-            {
-
-
-                ammo = 30;
-                caric = caric - 1;
-            }
-
+         
 
 
             if (ammo < 0) { ammo = 0; }
@@ -68,6 +57,19 @@ public class AutoGun : MonoBehaviour {
     {
         RaycastHit hit;
         audio.Play();
+        if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
+        {
+            ammo -= 1;
+        }
+        if (ammo == 0 && caric > 0)
+        {
+
+
+            ammo = 30;
+            caric = caric - 1;
+        }
+
+
 
         if (Physics.Raycast(transform.position, cam.transform.forward, out hit, range))
         {
@@ -81,7 +83,7 @@ public class AutoGun : MonoBehaviour {
 
         }
 
-        Crosshair.transform.position = cam.transform.position;
+
     }
 
 

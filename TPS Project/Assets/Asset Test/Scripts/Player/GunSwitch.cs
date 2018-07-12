@@ -84,5 +84,10 @@ public class GunSwitch : MonoBehaviour {
             Ammo = pistola.GetComponent<Gun>().ammo;
             Magazines = pistola.GetComponent<Gun>().caric;
         }
+        if (a2)
+        {
+            Ammo = AK47.GetComponent<AutoGun>().ammo;
+            Magazines = AK47.GetComponent<AutoGun>().caric;
+        }
     }
 }

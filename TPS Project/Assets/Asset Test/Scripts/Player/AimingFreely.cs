@@ -29,5 +29,7 @@ public class AimingFreely : MonoBehaviour {
             hand.transform.rotation = offSet;
             Anim.GetBoneTransform(HumanBodyBones.RightHand).transform.rotation = offSet;
         }
+
+        
     }
 }
