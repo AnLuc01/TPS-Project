@@ -70,7 +70,7 @@ public class Gun : MonoBehaviour {
 
         if (Physics.Raycast(transform.position, cam.transform.forward, out hit, range))
         {
-           
+            if(hit.collider != null)
             hit.transform.SendMessage("HitByRay");
             HealthScript target = hit.transform.GetComponent<HealthScript>();
             if(target != null)

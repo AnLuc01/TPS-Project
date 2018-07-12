@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour {
     public Image Crosshair;
     public bool exitingCar;
     public Rigidbody rb;
+
     void getInCar()
     {
       

@@ -20,28 +20,29 @@ public class NPCAi : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-        Distance = Vector3.Distance(transform.position, Target.transform.position);
-       if (Distance > 3.5)
+    { if (Target != null)
         {
-            if (Agitated)
+
+            Distance = Vector3.Distance(transform.position, Target.transform.position);
+            if (Distance > 3.5)
             {
-                Sprint();
+                if (Agitated)
+                {
+                    Sprint();
+                }
+                else
+                {
+                    Walk();
+                }
+
             }
             else
             {
-                Walk();
+                Idle();
             }
+            Sensors();
 
         }
-        else
-        {
-            Idle();
-        }
-        Sensors();
-        
-
     }
 
     void lookAt(Transform Target)

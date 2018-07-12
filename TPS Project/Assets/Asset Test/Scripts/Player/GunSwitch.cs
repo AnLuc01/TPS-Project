@@ -10,6 +10,9 @@ public class GunSwitch : MonoBehaviour {
     public bool isInCar;
     public GameObject pistola;
     public bool isAimingPistol;
+    public string currentGun;
+    public int Ammo;
+    public int Magazines;
     public Transform centerOfRightHand;
 	// Use this for initialization
 	void Start () {
@@ -17,6 +20,8 @@ public class GunSwitch : MonoBehaviour {
         a1 = false;
         anim.SetBool("Rifle", false);
         AK47.SetActive(false);
+        a2 = false;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -72,6 +77,12 @@ public class GunSwitch : MonoBehaviour {
             }
            
 
+        }
+
+        if (a1)
+        {
+            Ammo = pistola.GetComponent<Gun>().ammo;
+            Magazines = pistola.GetComponent<Gun>().caric;
         }
     }
 }

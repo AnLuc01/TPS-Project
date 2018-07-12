@@ -11,9 +11,18 @@ public class HealthScript : MonoBehaviour {
 	void Start () {
         Health = 100;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Bodyarmor")
+        {
+            Armor = 100;
+            Destroy(other.gameObject);
+            
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (takeDamageB)
         {
             takeDamage(10);
