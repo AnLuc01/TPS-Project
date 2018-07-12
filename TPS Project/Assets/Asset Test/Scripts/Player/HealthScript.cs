@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class HealthScript : MonoBehaviour {
 
-  public  int Health;
-  public int Armor;
+   public  int Health;
+   public int Armor;
     Animator anim;
+    public bool isEnemy = false;
     public bool takeDamageB = false;
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,7 @@ public class HealthScript : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Bodyarmor")
+        if (other.gameObject.name == "Bodyarmor" && gameObject.tag == "Player")
         {
             Armor = 100;
             Destroy(other.gameObject);
@@ -40,6 +41,19 @@ public class HealthScript : MonoBehaviour {
 
   public void takeDamage(int amount)
     {
+        if (GetComponent<NPCAi>())
+        {
+            NPCAi NPCScript = GetComponent<NPCAi>();
+            NPCScript.Agitated = true;
+            if (isEnemy)
+            {
+                Fight();
+            }
+            else
+            {
+                NPCScript.Sprint();
+            }
+        }
         if (Armor > 0)
         {
             Armor -= amount;
@@ -57,5 +71,10 @@ void Die()
         anim.SetBool("Die", true);
         CapsuleCollider Coll = GetComponent<CapsuleCollider>();
         Coll.height = anim.GetFloat("ColliderHeight");
+        Coll.radius = anim.GetFloat("ColliderRange");
+    }
+void Fight()
+    {
+
     }
 }

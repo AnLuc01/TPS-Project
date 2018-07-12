@@ -45,24 +45,31 @@ public class NPCAi : MonoBehaviour
         }
     }
 
-    void lookAt(Transform Target)
+  public void runToTarget(Transform Target)
+    {
+        lookAt(Target);
+        Sprint();
+    }
+
+  public void lookAt(Transform Target)
     {
         transform.LookAt(new Vector3(Target.position.x, transform.position.y, Target.position.z));
     }
 
-    void Walk()
+    public void Walk()
     {
         NPCAnim.SetBool("Sprinting", false);
 
         NPCAnim.SetBool("Walking", true);
     }
 
-    void Sprint()
+    public void Sprint()
     {
+        NPCAnim.SetBool("Walking", true);
         NPCAnim.SetBool("Sprinting", true);
     }
 
-    void Idle()
+    public void Idle()
     {
         NPCAnim.SetBool("Sprinting", false);
         NPCAnim.SetBool("Walking", false);
