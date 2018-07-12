@@ -1018,13 +1018,13 @@ GameObject:
   - component: {fileID: 4263135450814474}
   - component: {fileID: 95061884570748488}
   - component: {fileID: 54696234980881632}
-  - component: {fileID: 65151794121700318}
   - component: {fileID: 114669898333175036}
   - component: {fileID: 114043502424782338}
   - component: {fileID: 114746481924762378}
   - component: {fileID: 114088542982427076}
   - component: {fileID: 114481104128743242}
   - component: {fileID: 114771819601703312}
+  - component: {fileID: 136906841862469320}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1553,7 +1553,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1851727083328226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.11, y: -0.07, z: 73.2}
+  m_LocalPosition: {x: 26.65, y: 0.036, z: 70.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4133399854801086}
@@ -2832,18 +2832,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!65 &65151794121700318
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851727083328226}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.7934301, z: 0.41035038}
-  m_Center: {x: 0, y: 0.8829483, z: -0.043910265}
 --- !u!81 &81811736646625456
 AudioListener:
   m_ObjectHideFlags: 1
@@ -3068,6 +3056,9 @@ MonoBehaviour:
   isInCar: 0
   pistola: {fileID: 1665616565117936}
   isAimingPistol: 0
+  currentGun: 
+  Ammo: 0
+  Magazines: 0
   centerOfRightHand: {fileID: 4432863248434002}
 --- !u!114 &114062498885717966
 MonoBehaviour:
@@ -3084,7 +3075,7 @@ MonoBehaviour:
   range: 1000000
   cam: {fileID: 1810782933257872}
   camera: {fileID: 20474843874983208}
-  cr: {fileID: 0}
+  Crosshair: {fileID: 0}
   audio: {fileID: 82761779242806112}
   fireRate: 7.5
   nextTimeToFire: 1
@@ -3131,7 +3122,7 @@ MonoBehaviour:
   range: 1000000
   cam: {fileID: 1810782933257872}
   camera: {fileID: 20474843874983208}
-  cr: {fileID: 0}
+  Crosshair: {fileID: 0}
   sparo: {fileID: 8300000, guid: e729fc0173362c149996f34a50e55d4d, type: 3}
   audio: {fileID: 82541074529606274}
   fireRate: 7.5
@@ -3181,7 +3172,7 @@ MonoBehaviour:
   ter: {fileID: 0}
   enteredCar: 0
   isInCar: 0
-  canv: {fileID: 0}
+  Crosshair: {fileID: 0}
   exitingCar: 0
   rb: {fileID: 0}
 --- !u!114 &114746481924762378
@@ -3216,6 +3207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
+  Armor: 0
+  takeDamageB: 0
 --- !u!114 &114898479876067996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3244,6 +3237,19 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1810782933257872}
   m_Enabled: 1
+--- !u!136 &136906841862469320
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1851727083328226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.33073997
+  m_Height: 1.8119223
+  m_Direction: 1
+  m_Center: {x: -0.0052890778, y: 0.8872961, z: 0}
 --- !u!137 &137221559725154326
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

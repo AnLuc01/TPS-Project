@@ -13,10 +13,9 @@ public class AimingFreely : MonoBehaviour {
 	void Start () {
         Anim = GetComponent<Animator>();
         chest = Anim.GetBoneTransform(HumanBodyBones.Chest);
-        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         hand = Anim.GetBoneTransform(HumanBodyBones.LeftHand);
     }
-   
+
 
     // Update is called once per frame
     void LateUpdate() {

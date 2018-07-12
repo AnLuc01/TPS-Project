@@ -158,9 +158,9 @@ GameObject:
   - component: {fileID: 4795626200923524}
   - component: {fileID: 95567637486986636}
   - component: {fileID: 54617978020239468}
-  - component: {fileID: 65887125363816334}
   - component: {fileID: 114003554606053014}
-  - component: {fileID: 114156048640191506}
+  - component: {fileID: 114327493765160978}
+  - component: {fileID: 136518436832971586}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -1894,18 +1894,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!65 &65887125363816334
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1106178265349438}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.7934301, z: 0.41035038}
-  m_Center: {x: 0, y: 0.8829483, z: -0.043910265}
 --- !u!95 &95567637486986636
 Animator:
   serializedVersion: 3
@@ -1941,7 +1929,7 @@ MonoBehaviour:
   Avoiding: 0
   newDir: {x: 0, y: 0, z: 0}
   RayS: {fileID: 1069980600809376}
---- !u!114 &114156048640191506
+--- !u!114 &114327493765160978
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1953,6 +1941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
+  Armor: 0
+  takeDamageB: 0
 --- !u!114 &114572167439209934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1964,6 +1954,19 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136518436832971586
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106178265349438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8187958
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.96269184, z: 0}
 --- !u!137 &137215508449392500
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
