@@ -146,7 +146,7 @@ public class PlayerToCar : MonoBehaviour {
         {
            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             deactivateAllCameras();
-
+            leftDoor.GetComponent<Animator>().SetTrigger("open");
 
         }
         else

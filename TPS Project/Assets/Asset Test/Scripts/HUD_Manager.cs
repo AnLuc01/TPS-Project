@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using System.Text;
+using UnityEditor;
+using System.IO;
+
+
 public class HUD_Manager : MonoBehaviour {
 #region //UI Declaration 
     public Image Health;
@@ -25,26 +30,36 @@ public class HUD_Manager : MonoBehaviour {
     public int Money;
     #endregion
 
+   
 
     // Use this for initialization
     void Start () {
-        Rank = "Outsider";
+  
         Player = GameObject.FindGameObjectWithTag("Player");
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Ammo = Player.GetComponent<GunSwitch>().Ammo;
-        Magazines = Player.GetComponent<GunSwitch>().Magazines;
+        Reputation = Player.GetComponent<Stats>().Rep;
+        Money = Player.GetComponent<Stats>().Money;
+
+        Rank = Player.GetComponent<Stats>().Rank;
+
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+
         HealthAmount = Player.GetComponent<HealthScript>().Health;
         ArmorAmount = Player.GetComponent<HealthScript>().Armor;
+        Ammo = Player.GetComponent<GunSwitch>().Ammo;
+        Magazines = Player.GetComponent<GunSwitch>().Magazines;
+        
+      
         Health.fillAmount = HealthAmount/100;
         Armor.fillAmount = ArmorAmount/100;
         RankText.text = Rank;
         AmmoText.text = Ammo.ToString() + "/";
         MagazinesText.text = Magazines.ToString();
         ReputationText.text = Reputation.ToString();
+        MoneyText.text = Money.ToString()+"$";
 
     }
 }
