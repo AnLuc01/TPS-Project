@@ -73,6 +73,10 @@ public class Gun : MonoBehaviour {
             if(hit.collider != null)
             hit.transform.SendMessage("HitByRay");
             HealthScript target = hit.transform.GetComponent<HealthScript>();
+            if(hit.collider.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward* 50);
+            }
             if(target != null)
             {
                 target.takeDamage(10);

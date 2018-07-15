@@ -41,7 +41,7 @@ public class Stats : MonoBehaviour {
         }
     }
     // Use this for initialization
-    void Start () {
+    void Awake () {
         readSave();
 	}
 	

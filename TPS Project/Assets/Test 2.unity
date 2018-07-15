@@ -7623,7 +7623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5302b45792140941883f5ac3878c1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 100
   Armor: 0
   isEnemy: 0
   takeDamageB: 0

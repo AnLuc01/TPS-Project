@@ -80,6 +80,10 @@ public class AutoGun : MonoBehaviour {
             {
                 target.takeDamage(5);
             }
+            if (hit.collider.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 50);
+            }
 
         }
 
