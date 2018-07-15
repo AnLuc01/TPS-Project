@@ -26,31 +26,32 @@ public class AutoGun : MonoBehaviour {
     void Update()
     {
         Debug.DrawLine(transform.position, cam.transform.forward, Color.red);
-
-
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (!PauseMenuScript.gameIsPaused)
         {
-
-            Crosshair.enabled = true;
-        }
-
-        else { Crosshair.enabled = false; }
-        if (Input.GetKey(KeyCode.Mouse1))
-        {
-            if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire && ammo > 0)
+            if (Input.GetKey(KeyCode.Mouse1))
             {
-                nextTimeToFire = Time.time + 1f / fireRate;
 
-                Shoot();
-                cam.transform.rotation = camera.transform.rotation;
-
-
+                Crosshair.enabled = true;
             }
 
-         
+            else { Crosshair.enabled = false; }
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire && ammo > 0)
+                {
+                    nextTimeToFire = Time.time + 1f / fireRate;
+
+                    Shoot();
+                    cam.transform.rotation = camera.transform.rotation;
 
 
-            if (ammo < 0) { ammo = 0; }
+                }
+
+
+
+
+                if (ammo < 0) { ammo = 0; }
+            }
         }
     }
    void Shoot()

@@ -39,46 +39,48 @@ public class MouseLookT : MonoBehaviour {
         isInCar = GetComponentInParent<PlayerScript>().isInCar;
     }
     void LateUpdate()
-    {
-        if (!isInCar)
+    { if (!PauseMenuScript.gameIsPaused)
         {
-            if (distance < 2.5f) { distance = 2.5f; } else if (distance > 2.5f) { distance = 2.5f; }
-            if (target)
+            if (!isInCar)
             {
-                x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
-                y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
-
-                y = ClampAngle(y, yMinLimit, yMaxLimit);
-
-                Quaternion rotation = Quaternion.Euler(y, x, 0);
-
-                distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
-
-                RaycastHit hit;
-                if (Physics.Linecast(target.position, transform.position, out hit))
+                if (distance < 2.5f) { distance = 2.5f; } else if (distance > 2.5f) { distance = 2.5f; }
+                if (target)
                 {
-                    distance -= hit.distance;
+                    x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
+                    y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+
+                    y = ClampAngle(y, yMinLimit, yMaxLimit);
+
+                    Quaternion rotation = Quaternion.Euler(y, x, 0);
+
+                    distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
+
+                    RaycastHit hit;
+                    if (Physics.Linecast(target.position, transform.position, out hit))
+                    {
+                        distance -= hit.distance;
+                    }
+                    Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
+                    Vector3 position = rotation * negDistance + target.position + new Vector3(0, yOffset, 0);
+
+                    Quaternion OffSet = Quaternion.Euler(0, 40, 0);
+
+
+
+                    transform.rotation = rotation;
+                    transform.position = position;
+
+
                 }
-                Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
-                Vector3 position = rotation * negDistance + target.position + new Vector3(0, yOffset, 0);
 
-                Quaternion OffSet =  Quaternion.Euler(0, 40, 0);
-            
-            
-
-                transform.rotation = rotation;
-                transform.position = position;
-                
-                
-            }
-
-            if (GetComponentInParent<GunSwitch>().isAiming)
-            {
-                target = AimT;
-            }
-            else
-            {
-                target = GameObject.FindGameObjectWithTag("Player").transform;
+                if (GetComponentInParent<GunSwitch>().isAiming)
+                {
+                    target = AimT;
+                }
+                else
+                {
+                    target = GameObject.FindGameObjectWithTag("Player").transform;
+                }
             }
         }
     }

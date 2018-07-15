@@ -149,18 +149,20 @@ public class PlayerScript : MonoBehaviour {
             transform.Rotate(Vector3.up);
         }
 
+        if (!PauseMenuScript.gameIsPaused)
 
-
-        if (Input.GetKey(KeyCode.Mouse1))
         {
-            if (GetComponent<GunSwitch>().hasAgun)
+            if (Input.GetKey(KeyCode.Mouse1))
             {
-                Aim();
+                if (GetComponent<GunSwitch>().hasAgun)
+                {
+                    Aim();
+                }
             }
-        }
-        else
-        {
-            NoAim();
+            else
+            {
+                NoAim();
+            }
         }
         if(isInCar)
         {

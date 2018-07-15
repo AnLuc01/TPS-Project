@@ -26,10 +26,12 @@ public class Gun : MonoBehaviour {
     void Update() {
         Debug.DrawLine(transform.position, cam.transform.forward, Color.red);
 
-        if (Input.GetKey(KeyCode.Mouse1)&& !isInCar)
+        if (!PauseMenuScript.gameIsPaused)
         {
-            Crosshair.enabled = true;
-        }
+            if (Input.GetKey(KeyCode.Mouse1) && !isInCar)
+            {
+                Crosshair.enabled = true;
+            }
             else { Crosshair.enabled = false; }
             if (Input.GetKey(KeyCode.Mouse1))
                 if (Input.GetKeyDown(KeyCode.Mouse0) && ammo > 0)
@@ -56,10 +58,10 @@ public class Gun : MonoBehaviour {
 
 
             if (ammo < 0) { ammo = 0; }
-        
 
-   
 
+
+        }
 
     }
     void Shoot()
