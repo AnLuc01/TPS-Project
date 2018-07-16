@@ -180,7 +180,7 @@ public class PlayerScript : MonoBehaviour {
         }*/
         else
         {
-            GetComponentInChildren<mouseLook>().enabled = true;
+            GetComponentInChildren<MouseLookT>().enabled = true;
         }
         GameObject leftDoor = GetComponent<PlayerToCar>().leftDoor;
         GameObject CCar = GetComponent<PlayerToCar>().closestCar;
