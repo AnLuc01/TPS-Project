@@ -17,12 +17,13 @@ public class HUD_Manager : MonoBehaviour {
     public Text MoneyText;
     #endregion
 
-#region // Other variables
+    #region // Other variables
+    [HideInInspector]
     public GameObject Player;
-    float HealthAmount;
-    float ArmorAmount;
-    int Ammo;
-    int Magazines;
+    public float HealthAmount;
+    public float ArmorAmount;
+    public int Ammo;
+    public int Magazines;
     public string Rank;
     public int Reputation;
     public int Money;

@@ -39,6 +39,11 @@ public class HealthScript : MonoBehaviour {
 
 
         }
+
+        if(Armor < 0)
+        {
+            Armor = 0;
+        }
     }
 
   public void takeDamage(int amount)
