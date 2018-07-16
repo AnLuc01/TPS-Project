@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenuScript : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     public static bool gameIsPaused;
     public GameObject pauseMenuUI;
     public GameObject HUD;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         pauseMenuUI.SetActive(false);
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.Escape))
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
             {
@@ -26,7 +29,7 @@ public class PauseMenuScript : MonoBehaviour {
                 Pause();
             }
         }
-	}
+    }
 
     public void Pause()
     {
@@ -37,9 +40,9 @@ public class PauseMenuScript : MonoBehaviour {
         AudioSource[] audioSourcesArray = FindObjectsOfType<AudioSource>();
         foreach (AudioSource Source in audioSourcesArray)
         {
-            if(Source.tag != "pauseSource")
-            Source.Pause();
-            
+            if (Source.tag != "pauseSource")
+                Source.Pause();
+
         }
     }
 
@@ -61,6 +64,4 @@ public class PauseMenuScript : MonoBehaviour {
     {
         Application.Quit();
     }
-
-    
 }

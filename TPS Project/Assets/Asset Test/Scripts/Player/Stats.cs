@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
-using UnityEditor;
 using System.IO;
 
 public class Stats : MonoBehaviour {
