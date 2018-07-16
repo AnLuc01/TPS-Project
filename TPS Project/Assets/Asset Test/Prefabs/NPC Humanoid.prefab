@@ -802,9 +802,10 @@ GameObject:
   - component: {fileID: 4372382923058980}
   - component: {fileID: 95306555831191682}
   - component: {fileID: 54005404617687420}
-  - component: {fileID: 136440996883073314}
   - component: {fileID: 114322588711655512}
   - component: {fileID: 114528578815326682}
+  - component: {fileID: 136440996883073314}
+  - component: {fileID: 65541148246952488}
   m_Layer: 0
   m_Name: NPC Humanoid
   m_TagString: NPC
@@ -1479,7 +1480,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746370380210752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.103607, y: 0.216, z: 61.68}
+  m_LocalPosition: {x: 25.2, y: 0.216, z: 73.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4695224509979582}
@@ -2093,6 +2094,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65541148246952488
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746370380210752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19610402, y: 0.27670193, z: 0.18553925}
+  m_Center: {x: -0.019774452, y: 1.6447287, z: -0.042621613}
 --- !u!95 &95306555831191682
 Animator:
   serializedVersion: 3
@@ -2139,8 +2152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5302b45792140941883f5ac3878c1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: 100
   Armor: 0
+  anim: {fileID: 0}
+  isEnemy: 0
   takeDamageB: 0
 --- !u!136 &136440996883073314
 CapsuleCollider:
@@ -2152,9 +2167,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.8632143
+  m_Height: 1.5701951
   m_Direction: 1
-  m_Center: {x: 0, y: 0.85944617, z: 0}
+  m_Center: {x: 0, y: 0.7129366, z: 0}
 --- !u!137 &137243864650121948
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

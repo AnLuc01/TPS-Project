@@ -82,6 +82,10 @@ public class Gun : MonoBehaviour {
             if(target != null)
             {
                 target.takeDamage(10);
+                if(hit.collider.GetType() == typeof(BoxCollider))
+                {
+                    target.Die();
+                }
             }
 
         }

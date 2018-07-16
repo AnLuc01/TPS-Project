@@ -73,15 +73,17 @@ public class HealthScript : MonoBehaviour {
         
     }
 
-void Die()
+public void Die()
     {
         
         anim.SetBool("Die", true);
         CapsuleCollider Coll = GetComponent<CapsuleCollider>();
         Coll.height = anim.GetFloat("ColliderHeight");
         Coll.radius = anim.GetFloat("ColliderRange");
+        BoxCollider boxColl = GetComponent<BoxCollider>();
+        boxColl.enabled = false;
     }
-void Fight()
+public void Fight()
     {
 
     }
