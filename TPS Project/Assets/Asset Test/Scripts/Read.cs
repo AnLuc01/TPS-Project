@@ -11,7 +11,8 @@ public class Read : MonoBehaviour
     {
         HUD_Manager HUDScript = GetComponent<HUD_Manager>();
 
-    System.IO.File.WriteAllText("Assets/Asset Test/Saves/Save.txt", HUDScript.HealthAmount.ToString() + "\n" + HUDScript.ArmorAmount.ToString());
+    System.IO.File.WriteAllText("Assets/Asset Test/Saves/Save.txt", HUDScript.HealthAmount.ToString() + "\n" + HUDScript.ArmorAmount.ToString() + "\n" + HUDScript.Rank 
+        + "\n" + HUDScript.Reputation.ToString() + "\n" + HUDScript.Money.ToString());
        
 
     }
@@ -30,7 +31,16 @@ public class Read : MonoBehaviour
                 case 1://Second line.
                     Armor = option;
                     break;
-
+                case 2:
+                    Rank = option;
+                    break;
+                case 3:
+                    Reputation = option;
+                    break;
+                case 4:
+                    Money = option;
+                    break;
+                    
                 default:
                     break;
             }
@@ -40,10 +50,12 @@ public class Read : MonoBehaviour
 
     public string Health;
     public string Armor;
+    public string Rank;
+    public string Reputation;
+    public string Money;
     // Update is called once per frame
     void Update()
     {
 
-        Load();
     }
 }

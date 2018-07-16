@@ -25,10 +25,10 @@ public class Stats : MonoBehaviour {
                     Armor = int.Parse(Line);
                     break;
                 case 2:
-                    Rep = int.Parse(Line);
+                    Rank = Line;
                     break;
                 case 3:
-                    Rank = Line;
+                    Rep = int.Parse(Line);
                     break;
                 case 4:
                     Money = int.Parse(Line);
