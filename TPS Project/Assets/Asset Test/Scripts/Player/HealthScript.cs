@@ -6,14 +6,13 @@ public class HealthScript : MonoBehaviour {
 
    public  int Health;
    public int Armor;
-    Animator anim;
+   public  Animator anim;
     public bool isEnemy = false;
     public bool takeDamageB = false;
 	// Use this for initialization
 	void Start () {
         Health = GetComponent<Stats>().Health;
         Armor = GetComponent<Stats>().Armor;
-        anim = GetComponent<Animator>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +26,8 @@ public class HealthScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        anim = gameObject.GetComponent<Animator>();
+
         if (Health <= 0)
         {
             Die();
@@ -69,6 +70,7 @@ public class HealthScript : MonoBehaviour {
 
 void Die()
     {
+        
         anim.SetBool("Die", true);
         CapsuleCollider Coll = GetComponent<CapsuleCollider>();
         Coll.height = anim.GetFloat("ColliderHeight");
