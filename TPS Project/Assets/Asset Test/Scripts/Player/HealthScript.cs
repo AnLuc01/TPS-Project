@@ -16,7 +16,7 @@ public class HealthScript : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Bodyarmor" && gameObject.tag == "Player")
+        if (other.gameObject.name == "Bodyarmor" && gameObject.tag == "Player" && Armor < 100) 
         {
             Armor = 100;
             Destroy(other.gameObject);
