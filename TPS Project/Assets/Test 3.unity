@@ -12194,7 +12194,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   DistanceToPlayer: 0
   target: {fileID: 820833207}
-  Chasing: 1
+  Chasing: 0
   distanceWithNode: 0
   DrivingPath: 0
   turnSpeed: 5

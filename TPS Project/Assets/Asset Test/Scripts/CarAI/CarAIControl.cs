@@ -52,7 +52,7 @@ public class CarAIControl : MonoBehaviour {
 
         if(target)
         dist = Vector3.Distance(transform.position, target.transform.position);
-        if (dist > 130f && Chasing)
+        if (dist > 130f )
         {
             currentNode = 1;
         }   
@@ -91,7 +91,7 @@ public class CarAIControl : MonoBehaviour {
                DrivingPath = true;
             }
 
-            if(!Chasing && !DrivingPath)
+            if(!NPCIsDriving && !DrivingPath)
             {
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
             }
