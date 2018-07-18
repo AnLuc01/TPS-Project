@@ -11,8 +11,8 @@ public class HealthScript : MonoBehaviour {
     public bool takeDamageB = false;
 	// Use this for initialization
 	void Start () {
-        Health = GetComponent<Stats>().Health;
-        Armor = GetComponent<Stats>().Armor;
+        Health = 100;
+        Armor = 4;
     }
     private void OnTriggerEnter(Collider other)
     {
