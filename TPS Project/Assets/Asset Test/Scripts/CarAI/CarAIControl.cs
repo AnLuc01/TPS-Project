@@ -48,14 +48,12 @@ public class CarAIControl : MonoBehaviour {
     {
 
         Player = GameObject.FindGameObjectWithTag("Player");
-        target = Player;
         DistanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
 
         if(target)
         dist = Vector3.Distance(transform.position, target.transform.position);
         if (dist > 130f && Chasing)
         {
-            Chasing = false;
             currentNode = 1;
         }   
         path = GameObject.FindGameObjectWithTag("Path").transform;
@@ -65,11 +63,7 @@ public class CarAIControl : MonoBehaviour {
         {
             Chasing = true;
         }
-        else
-        {
-            Chasing = false;
-        }
-      
+    
 
     }
     void FixedUpdate () {
@@ -82,7 +76,7 @@ public class CarAIControl : MonoBehaviour {
         if (NPCIsDriving)
         {
             Sensors();
-            if ((Chasing && target)|| DrivingPath)
+            if ((target) || DrivingPath)
             { 
                 Drive();
                 ApplySteer();
@@ -125,7 +119,7 @@ public class CarAIControl : MonoBehaviour {
             return;
         }
         Vector3 relativeVector;
-        if (target && Chasing)
+        if (target || Chasing)
         {
              relativeVector = transform.InverseTransformPoint(target.transform.position);
         }
@@ -261,7 +255,6 @@ public class CarAIControl : MonoBehaviour {
       void loseTarget()
       {
           target = null;
-          Chasing = false;
       }
       void lerpToSteerAngle()
     {
