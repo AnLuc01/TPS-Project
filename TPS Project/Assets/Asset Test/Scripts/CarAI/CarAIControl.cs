@@ -40,12 +40,13 @@ public class CarAIControl : MonoBehaviour {
 
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+
     }
     // Update is called once per frame
     private void Update()
     {
 
-        Player = GameObject.FindGameObjectWithTag("Player");
 
         if(target)
         dist = Vector3.Distance(transform.position, target.transform.position);
