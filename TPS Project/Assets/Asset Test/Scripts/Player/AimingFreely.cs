@@ -8,7 +8,7 @@ public class AimingFreely : MonoBehaviour {
     public Camera camera;
     public GameObject Target;
     public Quaternion offSet;
-    Transform chest;
+    public Transform chest;
     public Transform hand;
 	// Use this for initialization
 	void Start () {
@@ -35,10 +35,6 @@ public class AimingFreely : MonoBehaviour {
                 }
             }
         }
-        else
-        {
-            chest.transform.rotation = new Quaternion(Target.transform.rotation.x, transform.rotation.y, gameObject.transform.rotation.z, gameObject.transform.rotation.w);
-
-        }
+    
     }
 }

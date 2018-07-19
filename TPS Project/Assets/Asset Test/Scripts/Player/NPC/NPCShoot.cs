@@ -7,6 +7,7 @@ public class NPCShoot : MonoBehaviour {
     public Transform target;
     public Transform Chest;
     Rigidbody NPCRigid;
+    public Transform LegLeft;
     public Transform Hand;
     public float offSet;
     public Quaternion ChestRot;
@@ -17,13 +18,16 @@ public class NPCShoot : MonoBehaviour {
         NPCAnim = GetComponent<Animator>();
         Chest = NPCAnim.GetBoneTransform(HumanBodyBones.Chest);
         Hand = NPCAnim.GetBoneTransform(HumanBodyBones.LeftHand);
+        LegLeft = NPCAnim.GetBoneTransform(HumanBodyBones.LeftLowerLeg);
     }
 	
 	// Update is called once per frame
 	void Update () {
         NPCRigid.constraints = RigidbodyConstraints.FreezeRotationZ| RigidbodyConstraints.FreezeRotationX;
+
         Aim();
-	}
+        
+    }
     IEnumerator NumberGen()
     {
         while (true)
@@ -40,6 +44,9 @@ public class NPCShoot : MonoBehaviour {
         NPCAnim.SetBool("Pistol", true);
         transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z+offSet));
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
+        Chest.transform.rotation = Quaternion.Euler(-target.position.y*5, LegLeft.transform.eulerAngles.y, ChestRot.z);
+
+
     }
 
 }

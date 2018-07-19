@@ -806,6 +806,8 @@ GameObject:
   - component: {fileID: 114528578815326682}
   - component: {fileID: 136440996883073314}
   - component: {fileID: 65541148246952488}
+  - component: {fileID: 114347208967164292}
+  - component: {fileID: 114839811806305610}
   m_Layer: 0
   m_Name: NPC Humanoid
   m_TagString: NPC
@@ -2117,7 +2119,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 6ec87a5f9faf2cc4392535361f5bebf2, type: 3}
   m_Controller: {fileID: 9100000, guid: 15a17ad5e6dbf93489ee3544c32164d7, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -2129,7 +2131,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746370380210752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5486bf01968b974196363eb70637d47, type: 3}
   m_Name: 
@@ -2141,6 +2143,21 @@ MonoBehaviour:
   Avoiding: 0
   newDir: {x: 0, y: 0, z: 0}
   RayS: {fileID: 1515374473395122}
+--- !u!114 &114347208967164292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746370380210752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcf8382058874549a5e439920a84dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  Target: {fileID: 0}
+  offSet: {x: 0, y: 0, z: 0, w: 0}
+  hand: {fileID: 0}
 --- !u!114 &114528578815326682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2157,6 +2174,23 @@ MonoBehaviour:
   anim: {fileID: 0}
   isEnemy: 0
   takeDamageB: 0
+--- !u!114 &114839811806305610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746370380210752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea879ab405e205547849eb3bc77111dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCAnim: {fileID: 0}
+  target: {fileID: 0}
+  Chest: {fileID: 0}
+  Hand: {fileID: 0}
+  offSet: 0
+  ChestRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!136 &136440996883073314
 CapsuleCollider:
   m_ObjectHideFlags: 1
