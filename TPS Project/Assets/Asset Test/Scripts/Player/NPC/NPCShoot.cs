@@ -26,6 +26,7 @@ public class NPCShoot : MonoBehaviour {
         NPCRigid.constraints = RigidbodyConstraints.FreezeRotationZ| RigidbodyConstraints.FreezeRotationX;
 
         Aim();
+       
         
     }
     IEnumerator NumberGen()
@@ -39,13 +40,29 @@ public class NPCShoot : MonoBehaviour {
 
 
     void Aim()
-    {
+    {   foreach(AnimatorControllerParameter par in NPCAnim.parameters)
+        {
+            NPCAnim.SetBool(par.name, false);
+        }
+        
         NPCAnim.SetBool("Aiming", true);
         NPCAnim.SetBool("Pistol", true);
-        transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z+offSet));
-        Debug.DrawRay(transform.position, transform.forward, Color.blue);
-        Chest.transform.rotation = Quaternion.Euler(-target.position.y*5, LegLeft.transform.eulerAngles.y, ChestRot.z);
+        if (target)
+        {
+            transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z + offSet));
+            Debug.DrawRay(transform.position, transform.forward, Color.blue);
+            Chest.transform.rotation = Quaternion.Euler(-target.position.y * 5, LegLeft.transform.eulerAngles.y, ChestRot.z);
+        }
+        else
+        {
+            transform.LookAt(null);
+        }
 
+    }
+
+    void noAim()
+    {
+        NPCAnim.SetBool("Aiming", false);
 
     }
 
