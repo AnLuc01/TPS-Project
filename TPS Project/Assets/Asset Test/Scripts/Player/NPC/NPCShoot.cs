@@ -6,6 +6,7 @@ public class NPCShoot : MonoBehaviour {
     public Animator NPCAnim;
     public Transform target;
     public Transform Chest;
+    public int Health;
     Rigidbody NPCRigid;
     public Transform LegLeft;
     public Transform Hand;
@@ -23,29 +24,34 @@ public class NPCShoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        NPCRigid.constraints = RigidbodyConstraints.FreezeRotationZ| RigidbodyConstraints.FreezeRotationX;
+        Health = GetComponent<HealthScript>().Health;
 
-        Aim();
-       
-        
-    }
-    IEnumerator NumberGen()
-    {
-        while (true)
+        if (Health > 0)
         {
-            offSet = Random.Range(-0.5f, 0.5f);
-            yield return new WaitForSeconds(2);
+            NPCRigid.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+
+            Aim();
+
         }
+        }
+    IEnumerator NumberGen()
+        {
+            while (true)
+            {
+                offSet = Random.Range(-0.5f, 0.5f);
+                yield return new WaitForSeconds(2);
+            }
+        
     }
 
 
     void Aim()
-    {   foreach(AnimatorControllerParameter par in NPCAnim.parameters)
-        {
-            NPCAnim.SetBool(par.name, false);
-        }
+    {
         
-        NPCAnim.SetBool("Aiming", true);
+            setAllOtherBoolsFalse();
+        
+    
+    NPCAnim.SetBool("Aiming", true);
         NPCAnim.SetBool("Pistol", true);
         if (target)
         {
@@ -57,13 +63,21 @@ public class NPCShoot : MonoBehaviour {
         {
             transform.LookAt(null);
         }
-
     }
 
     void noAim()
     {
         NPCAnim.SetBool("Aiming", false);
 
+    }
+
+    void setAllOtherBoolsFalse()
+    {
+        foreach (AnimatorControllerParameter par in NPCAnim.parameters)
+        {
+            if (par.name != "Aim" || par.name != "Pistol") 
+            NPCAnim.SetBool(par.name, false);
+        }
     }
 
 }
