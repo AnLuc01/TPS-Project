@@ -400,7 +400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &103111487
 GameObject:
@@ -7035,7 +7035,7 @@ RectTransform:
   - {fileID: 1070828849}
   - {fileID: 1832237271}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7814,7 +7814,7 @@ Transform:
   - {fileID: 1411963677}
   - {fileID: 103111493}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &820833218
 MonoBehaviour:
@@ -8277,7 +8277,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh78556
+  m_Name: pb_Mesh14804
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -10906,6 +10906,27 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1238852003}
+--- !u!1 &1244778704 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1746370380210752, guid: e4b7f76332f7de44094c49e19cf33dfa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1478521439}
+--- !u!114 &1244778712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244778704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea879ab405e205547849eb3bc77111dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCAnim: {fileID: 0}
+  target: {fileID: 820833217}
+  Chest: {fileID: 0}
+  Hand: {fileID: 0}
+  offSet: 0
 --- !u!1 &1258348792
 GameObject:
   m_ObjectHideFlags: 0
@@ -11331,9 +11352,7 @@ MonoBehaviour:
   playerDriving: 0
   dist: 0
   Player: {fileID: 0}
-  DistanceToPlayer: 0
   target: {fileID: 0}
-  Chasing: 0
   distanceWithNode: 0
   DrivingPath: 0
   turnSpeed: 5
@@ -11805,7 +11824,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh122552
+  m_Name: pb_Mesh13756
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -12192,9 +12211,7 @@ MonoBehaviour:
   playerDriving: 0
   dist: 0
   Player: {fileID: 0}
-  DistanceToPlayer: 0
-  target: {fileID: 820833207}
-  Chasing: 0
+  target: {fileID: 292279880}
   distanceWithNode: 0
   DrivingPath: 0
   turnSpeed: 5
@@ -13056,6 +13073,16 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 541112327}
+    - target: {fileID: 114322588711655512, guid: e4b7f76332f7de44094c49e19cf33dfa,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95306555831191682, guid: e4b7f76332f7de44094c49e19cf33dfa,
+        type: 2}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4b7f76332f7de44094c49e19cf33dfa, type: 2}
   m_IsPrefabParent: 0
@@ -14714,7 +14741,7 @@ Transform:
   m_Children:
   - {fileID: 908227396}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1712462477
 MonoBehaviour:
