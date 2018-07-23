@@ -14,7 +14,9 @@ public class GetHitByCar : MonoBehaviour {
 	void Update () {
         FindRBs();
         
-	}
+
+
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -23,19 +25,20 @@ public class GetHitByCar : MonoBehaviour {
 
         if (collision.gameObject.tag == "Car")
         {
-            foreach (Rigidbody rb in bodys)
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * 500);
+            ragDoll();
+
+            if (collision.relativeVelocity.x<0)
             {
-                rb.isKinematic = false;
-            }
-            if(collision.relativeVelocity.x<0)
-            {
-                GetComponent<HealthScript>().Health +=(int)collision.relativeVelocity.x;
+                GetComponent<HealthScript>().Health +=(int)collision.relativeVelocity.x*13;
+
 
             }
             else
             {
-                GetComponent<HealthScript>().Health -= (int)collision.relativeVelocity.x;
+                GetComponent<HealthScript>().Health -= (int)collision.relativeVelocity.x*13;
             }
+
         }
     }
 

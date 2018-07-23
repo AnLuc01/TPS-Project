@@ -10,6 +10,7 @@ public class WheelDrive : MonoBehaviour {
     public GameObject wheelShape;
     public float maxAngle = 30;
     public float maxTorque = 300;
+    bool NPCDriving;
     public GameObject Cam;
     public float Brakes;
     private double Speed;
@@ -24,7 +25,7 @@ public class WheelDrive : MonoBehaviour {
    
 
     void Start () {
-        
+        NPCDriving = GetComponent<CarAIControl>().NPCIsDriving;
         wheels = GetComponentsInChildren<WheelCollider>();
         Cam = GameObject.FindGameObjectWithTag("MainCamera");
         rb = GetComponent<Rigidbody>();
@@ -57,7 +58,14 @@ public class WheelDrive : MonoBehaviour {
         axisH = Input.GetAxis("Horizontal") * 50;
             
         }
-       
+       if(playerDriving || NPCDriving)
+        {
+            GetComponent<AudioSource>().enabled = true;
+        }
+        else
+        {
+            GetComponent<AudioSource>().enabled = false;
+        }
 
 
     }
