@@ -38,6 +38,7 @@ public class Gun : MonoBehaviour {
             if (Input.GetKey(KeyCode.Mouse1))
                 if (isAutom)
                 {
+                    Crosshair.enabled = true;
                     if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire && ammo > 0)
                     {
                         nextTimeToFire = Time.time + 1f / fireRate;
@@ -49,11 +50,11 @@ public class Gun : MonoBehaviour {
                     }
                 }
                 else {
-                    if (Input.GetKey(KeyCode.Mouse0) && ammo > 0)
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire && ammo > 0)
                     {
 
 
-                        nextTimeToFire = Time.time + 1f / fireRate;
+                        nextTimeToFire = Time.time+0.5f / fireRate;
 
                         ShootSemi();
                         cam.transform.rotation = camera.transform.rotation;
@@ -61,21 +62,8 @@ public class Gun : MonoBehaviour {
                     }
                 }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
-            {
-                ammo -= 1;
-            }
-            if (ammo == 0 && caric > 0)
-            {
-
-                ammo = MagSize;
-                caric = caric - 1;
-            }
-
-
-
-            if (ammo < 0) { ammo = 0; }
-
+           
+         
 
 
         }
@@ -85,7 +73,7 @@ public class Gun : MonoBehaviour {
     {
         RaycastHit hit;
         audio.Play();
-
+        ammo -= 1;
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
@@ -108,8 +96,9 @@ public class Gun : MonoBehaviour {
         }
     }
         void ShootAutom()
-        {
-            RaycastHit hit;
+    {
+       
+        RaycastHit hit;
             audio.Play();
             if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
             {
@@ -118,7 +107,7 @@ public class Gun : MonoBehaviour {
             if (ammo == 0 && caric > 0)
             {
 
-
+            nextTimeToFire += 1F;
                 ammo = 30;
                 caric = caric - 1;
             }

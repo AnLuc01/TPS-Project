@@ -403,8 +403,7 @@ Transform:
   m_LocalPosition: {x: -0.000000092200935, y: 0.26241866, z: 0.0000000023283064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1115980815}
-  - {fileID: 1649134148}
+  - {fileID: 936811786}
   - {fileID: 818956332}
   - {fileID: 1745521468}
   - {fileID: 973652683}
@@ -443,7 +442,7 @@ Transform:
   m_Children:
   - {fileID: 261020553}
   m_Father: {fileID: 66897690}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &82337805
 GameObject:
@@ -6166,7 +6165,7 @@ Transform:
   m_Children:
   - {fileID: 1520082736}
   m_Father: {fileID: 66897690}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820833207
 GameObject:
@@ -7151,6 +7150,36 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 935519657}
   m_Mesh: {fileID: 4300004, guid: 5d2f8ca569d8d0d4b98b3ba32d3ccf20, type: 3}
+--- !u!1 &936811785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 936811786}
+  m_Layer: 0
+  m_Name: Guns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &936811786
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 936811785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1115980815}
+  - {fileID: 1649134148}
+  m_Father: {fileID: 66897690}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &958675524
 GameObject:
   m_ObjectHideFlags: 0
@@ -7248,7 +7277,7 @@ Transform:
   m_Children:
   - {fileID: 1449082872}
   m_Father: {fileID: 66897690}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975614699
 GameObject:
@@ -8055,14 +8084,14 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1115980814}
-  m_LocalRotation: {x: -0.41646492, y: 0.77445006, z: 0.111792736, w: -0.46291092}
-  m_LocalPosition: {x: 0.198, y: 0.192, z: -0.148}
-  m_LocalScale: {x: 0.10000008, y: 0.10000004, z: 0.10000007}
+  m_LocalRotation: {x: -0.4164649, y: 0.7744501, z: 0.11179274, w: -0.46291083}
+  m_LocalPosition: {x: 0.19799939, y: 0.19200018, z: -0.14800076}
+  m_LocalScale: {x: 0.10000019, y: 0.10000011, z: 0.10000015}
   m_Children:
   - {fileID: 935519658}
   - {fileID: 1054932368}
   - {fileID: 1865870726}
-  m_Father: {fileID: 66897690}
+  m_Father: {fileID: 936811786}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 12.264, y: 236, z: -50}
 --- !u!82 &1115980817
@@ -8169,7 +8198,7 @@ MonoBehaviour:
   caric: 5
   MagSize: 30
   isAutom: 1
-  isInCar: 0
+  isInCar: 1
 --- !u!1 &1126771779
 GameObject:
   m_ObjectHideFlags: 0
@@ -8560,7 +8589,7 @@ Transform:
   m_Children:
   - {fileID: 1020927035}
   m_Father: {fileID: 66897690}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1186261077 stripped
 GameObject:
@@ -10134,7 +10163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 66897690}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1538925640 stripped
 GameObject:
@@ -10612,13 +10641,13 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1649134147}
-  m_LocalRotation: {x: 0.0760269, y: -0.7625489, z: -0.6002306, w: -0.22904673}
-  m_LocalPosition: {x: 0.022, y: 0.228, z: 0.031}
+  m_LocalRotation: {x: 0.07602686, y: -0.76254886, z: -0.60023063, w: -0.22904672}
+  m_LocalPosition: {x: 0.022000497, y: 0.2280003, z: 0.031000849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1484627687}
   - {fileID: 205475418}
-  m_Father: {fileID: 66897690}
+  m_Father: {fileID: 936811786}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -108.15099, y: 304.071, z: -149.307}
 --- !u!114 &1649134149
@@ -10639,7 +10668,7 @@ MonoBehaviour:
   camera: {fileID: 1099719010}
   Crosshair: {fileID: 1539533215}
   audio: {fileID: 1649134150}
-  fireRate: 7.5
+  fireRate: 1
   nextTimeToFire: 1
   ammo: 5
   caric: 5
@@ -11456,7 +11485,7 @@ Transform:
   m_Children:
   - {fileID: 1191552172}
   m_Father: {fileID: 66897690}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752310679
 GameObject:
