@@ -14,10 +14,12 @@ public class Gun : MonoBehaviour {
     public float nextTimeToFire = 1f;
     public int ammo = 5;
     public int caric = 5;
+    public int MagSize;
+    public bool isAutom;
     public bool isInCar;
     // Use this for initialization
 	void Start () {
-        ammo = 5;
+        ammo = MagSize;
         Crosshair.enabled = false;
         caric = 5;
     }
@@ -34,14 +36,29 @@ public class Gun : MonoBehaviour {
             }
             else { Crosshair.enabled = false; }
             if (Input.GetKey(KeyCode.Mouse1))
-                if (Input.GetKeyDown(KeyCode.Mouse0) && ammo > 0)
+                if (isAutom)
                 {
-                    nextTimeToFire = Time.time + 1f / fireRate;
+                    if (Input.GetKey(KeyCode.Mouse0) && Time.time >= nextTimeToFire && ammo > 0)
+                    {
+                        nextTimeToFire = Time.time + 1f / fireRate;
 
-                    Shoot();
-                    cam.transform.rotation = camera.transform.rotation;
+                        ShootAutom();
+                        cam.transform.rotation = camera.transform.rotation;
 
 
+                    }
+                }
+                else {
+                    if (Input.GetKey(KeyCode.Mouse0) && ammo > 0)
+                    {
+
+
+                        nextTimeToFire = Time.time + 1f / fireRate;
+
+                        ShootSemi();
+                        cam.transform.rotation = camera.transform.rotation;
+
+                    }
                 }
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
@@ -51,7 +68,7 @@ public class Gun : MonoBehaviour {
             if (ammo == 0 && caric > 0)
             {
 
-                ammo = 5;
+                ammo = MagSize;
                 caric = caric - 1;
             }
 
@@ -64,7 +81,7 @@ public class Gun : MonoBehaviour {
         }
 
     }
-    void Shoot()
+    void ShootSemi()
     {
         RaycastHit hit;
         audio.Play();
@@ -72,24 +89,57 @@ public class Gun : MonoBehaviour {
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            if(hit.collider != null)
-            hit.transform.SendMessage("HitByRay");
+            if (hit.collider != null)
+                hit.transform.SendMessage("HitByRay");
             HealthScript target = hit.transform.GetComponent<HealthScript>();
-            if(hit.collider.gameObject.GetComponent<Rigidbody>() != null)
+            if (hit.collider.gameObject.GetComponent<Rigidbody>() != null)
             {
-                hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward* 50);
+                hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 50);
             }
-            if(target != null)
+            if (target != null)
             {
                 target.takeDamage(10);
-                if(hit.collider.GetType() == typeof(BoxCollider))
+                if (hit.collider.GetType() == typeof(BoxCollider))
                 {
                     target.takeDamage(target.Health);
                 }
             }
 
         }
+    }
+        void ShootAutom()
+        {
+            RaycastHit hit;
+            audio.Play();
+            if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
+            {
+                ammo -= 1;
+            }
+            if (ammo == 0 && caric > 0)
+            {
+
+
+                ammo = 30;
+                caric = caric - 1;
+            }
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        {
+
+            hit.transform.SendMessage("HitByRay");
+            HealthScript target = hit.transform.GetComponent<HealthScript>();
+            if (target != null)
+            {
+                target.takeDamage(5);
+            }
+            if (hit.collider.gameObject.GetComponent<Rigidbody>() != null)
+            {
+                hit.collider.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 50);
+            }
+
+        }
 
     }
+
+    
 
 }

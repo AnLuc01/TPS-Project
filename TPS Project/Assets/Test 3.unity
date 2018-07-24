@@ -578,7 +578,7 @@ MonoBehaviour:
   yMinLimit: -30
   yMaxLimit: 42
   distanceMin: 0.5
-  distanceMax: 15
+  distanceMax: 2
   AimT: {fileID: 1411963677}
 --- !u!81 &103111490
 AudioListener:
@@ -616,7 +616,7 @@ Transform:
   m_LocalScale: {x: 0.00999623, y: 0.099962175, z: 0.099962175}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113174690
 GameObject:
@@ -999,7 +999,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &246613236
 SkinnedMeshRenderer:
@@ -5730,7 +5730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &656754506
 SkinnedMeshRenderer:
@@ -6301,6 +6301,19 @@ MonoBehaviour:
   Ammo: 0
   Magazines: 0
   centerOfRightHand: {fileID: 1535002663}
+  mouseWheel: 0
+  Guns:
+  - {fileID: 1153120653}
+  - {fileID: 1649134147}
+  - {fileID: 1115980814}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Weapons: 0
 --- !u!114 &820833214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6369,6 +6382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 994537653}
+  - {fileID: 1153120654}
   - {fileID: 854493399}
   - {fileID: 1269009838}
   - {fileID: 1338278295}
@@ -6427,7 +6441,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &848748215
 SkinnedMeshRenderer:
@@ -6534,7 +6548,7 @@ Transform:
   m_Children:
   - {fileID: 1091995311}
   m_Father: {fileID: 820833217}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854646753
 GameObject:
@@ -8026,7 +8040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115980815}
   - component: {fileID: 1115980817}
-  - component: {fileID: 1115980816}
+  - component: {fileID: 1115980818}
   m_Layer: 0
   m_Name: ak47
   m_TagString: Untagged
@@ -8051,29 +8065,6 @@ Transform:
   m_Father: {fileID: 66897690}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 12.264, y: 236, z: -50}
---- !u!114 &1115980816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114455240012732586, guid: 76313478d040cb34f84da772abd6ed4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1115980814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 836093c2d4f609e43997996668423c02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  range: 1000000
-  cam: {fileID: 103111487}
-  camera: {fileID: 1099719010}
-  Crosshair: {fileID: 1539533215}
-  sparo: {fileID: 8300000, guid: e729fc0173362c149996f34a50e55d4d, type: 3}
-  audio: {fileID: 1115980817}
-  fireRate: 7.5
-  nextTimeToFire: 1
-  ammo: 5
-  caric: 5
 --- !u!82 &1115980817
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8155,6 +8146,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1115980818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1115980814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8941db688f08f7e43aa767c82da18d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 1000000
+  cam: {fileID: 103111487}
+  camera: {fileID: 1099719010}
+  Crosshair: {fileID: 1539533215}
+  audio: {fileID: 1115980817}
+  fireRate: 7.5
+  nextTimeToFire: 1
+  ammo: 5
+  caric: 5
+  MagSize: 30
+  isAutom: 1
+  isInCar: 0
 --- !u!1 &1126771779
 GameObject:
   m_ObjectHideFlags: 0
@@ -8457,6 +8472,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1153120653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1153120654}
+  m_Layer: 0
+  m_Name: Fists
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1153120654
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1153120653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 820833217}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1158150983
 GameObject:
   m_ObjectHideFlags: 0
@@ -8731,7 +8774,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1269009839
 SkinnedMeshRenderer:
@@ -9176,7 +9219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1338278296
 SkinnedMeshRenderer:
@@ -9349,7 +9392,7 @@ Transform:
   m_LocalScale: {x: 0.00999623, y: 0.099962175, z: 0.099962175}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1414830109
 GameObject:
@@ -9380,7 +9423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1414830111
 SkinnedMeshRenderer:
@@ -9740,7 +9783,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820833217}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1497799386
 SkinnedMeshRenderer:
@@ -10600,6 +10643,8 @@ MonoBehaviour:
   nextTimeToFire: 1
   ammo: 5
   caric: 5
+  MagSize: 5
+  isAutom: 0
   isInCar: 0
 --- !u!82 &1649134150
 AudioSource:

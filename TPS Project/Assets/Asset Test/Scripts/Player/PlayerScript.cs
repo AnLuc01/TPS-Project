@@ -154,7 +154,7 @@ public class PlayerScript : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.Mouse1))
             {
-                if (GetComponent<GunSwitch>().hasAgun)
+                if (GetComponent<GunSwitch>().Weapons !=GunSwitch.WeaponSlots.FISTS)
                 {
                     Aim();
                 }

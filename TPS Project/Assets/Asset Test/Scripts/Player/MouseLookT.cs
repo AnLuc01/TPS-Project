@@ -53,7 +53,7 @@ public class MouseLookT : MonoBehaviour {
 
                     Quaternion rotation = Quaternion.Euler(y, x, 0);
 
-                    distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
+                    distance = Mathf.Clamp(distance * 5, distanceMin, distanceMax);
 
                     RaycastHit hit;
                     if (Physics.Linecast(target.position, transform.position, out hit))

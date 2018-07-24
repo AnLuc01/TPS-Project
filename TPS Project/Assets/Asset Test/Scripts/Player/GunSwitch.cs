@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GunSwitch : MonoBehaviour {
+public class GunSwitch : MonoBehaviour
+{
     public bool a1;
     public bool a2;
     public GameObject AK47;
@@ -9,30 +10,58 @@ public class GunSwitch : MonoBehaviour {
     public bool hasAgun;
     public bool isInCar;
     public GameObject pistola;
-     bool isAimingPistol;
+    bool isAimingPistol;
     public Camera cam;
-     public bool isAiming;
+    public bool isAiming;
     public int Ammo;
     public int Magazines;
     public Transform centerOfRightHand;
     bool isAimingAK;
+    public float mouseWheel;
+    public GameObject[] Guns;
     // Use this for initialization
-    void Start () {
-        pistola.SetActive(false);
+
+    
+    public enum WeaponSlots
+    {
+        FISTS, PISTOL, AK, RIFLE, UZI, SHOTGUN, BAT,
+    }
+
+    public WeaponSlots Weapons = new WeaponSlots();
+    void Start()
+    {
+        Weapons = WeaponSlots.FISTS;
         a1 = false;
         anim.SetBool("Rifle", false);
-        AK47.SetActive(false);
         a2 = false;
         anim = gameObject.GetComponent<Animator>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
-     
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Aim"))
+        mouseWheel = Input.GetAxis("Mouse ScrollWheel");
+        GunSwitching();
+        if (Weapons == WeaponSlots.PISTOL)
+        {
+            anim.SetBool("Pistol", true);
+        }
+        else
+        {
+            anim.SetBool("Pistol", false);
+        }
+        if(Weapons == WeaponSlots.AK)
+        {
+            anim.SetBool("Rifle", true);
+        }
+
+        #region Old Code
+        print("b");
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Aim"))
         {
             isAimingPistol = true;
 
@@ -41,7 +70,7 @@ public class GunSwitch : MonoBehaviour {
         {
             isAimingPistol = false;
         }
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Ak47"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Ak47"))
         {
             isAimingAK = true;
         }
@@ -49,16 +78,16 @@ public class GunSwitch : MonoBehaviour {
         {
             isAimingAK = false;
         }
-        if(isAimingPistol)
+        if (isAimingPistol)
         {
-            pistola.transform.localRotation =  Quaternion.Euler(-115,388,-233);
+            pistola.transform.localRotation = Quaternion.Euler(-115, 388, -233);
             pistola.transform.position = centerOfRightHand.transform.position;
         }
         isInCar = GetComponent<PlayerScript>().isInCar;
-     
+
         if (!isInCar)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+          /*  if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 hasAgun = true;
 
@@ -88,21 +117,15 @@ public class GunSwitch : MonoBehaviour {
                 pistola.SetActive(false);
 
             }
-           
 
+    */
         }
 
-        if (a1)
-        {
-            Ammo = pistola.GetComponent<Gun>().ammo;
+        Ammo = 10;
             Magazines = pistola.GetComponent<Gun>().caric;
-        }
-        if (a2)
-        {
-            Ammo = AK47.GetComponent<AutoGun>().ammo;
-            Magazines = AK47.GetComponent<AutoGun>().caric;
-        }
-        if(isAimingPistol || isAimingAK)
+        
+        
+        if (isAimingPistol || isAimingAK)
         {
             isAiming = true;
 
@@ -111,5 +134,69 @@ public class GunSwitch : MonoBehaviour {
         {
             isAiming = false;
         }
+#endregion
+    }
+    void activateCurrentGuns()
+    { int i = 0;
+
+        foreach (GameObject Gun in Guns)
+        {
+            if(Weapons == WeaponSlots.FISTS)
+            {
+             if(Gun != Guns[0])
+                {
+                    Gun.SetActive(false);
+                }
+            }
+        }
+        do
+        {
+            if(i == (int)Weapons)
+            {
+                Guns[i].SetActive(true);
+                if (Guns[i].GetComponent<Gun>())
+                {
+                    
+                    Ammo = Guns[i].GetComponent<Gun>().ammo;
+                    Magazines = Guns[i].GetComponent<Gun>().caric;
+                }
+                }
+            else
+            {
+               
+                Guns[i].SetActive(false);
+            }
+            
+            i++;
+            print(i);
+        } while (i < Guns.Length-1);
+
+        
+
+    }
+    void GunSwitching() 
+        {
+        if(mouseWheel>0)
+        {
+
+            if ((int)Weapons != 6)
+                Weapons += 1;
+            activateCurrentGuns();
+
+
+        }
+        else if(mouseWheel<0)
+        {
+            if(Weapons != 0)
+            {
+                Weapons -= 1;
+
+            }
+            activateCurrentGuns();
+
+        }
+
+
+
     }
 }
